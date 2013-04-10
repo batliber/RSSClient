@@ -1,0 +1,47 @@
+{
+  "id" : "user/11034465876805643143/source/com.google/post",
+  "title" : "\"post\" a través de Avatar en Google Reader",
+  "author" : "Avatar",
+  "updated" : 1274912291,
+  "direction" : "ltr",
+  "items" : [ {
+    "isReadStateLocked" : true,
+    "commentInfo" : {
+      "user/11034465876805643143/state/com.google/broadcast" : {
+        "permalinkUrl" : "http://www.google.com/buzz/110310561168118869969/guBTH8NHWxo",
+        "commentState" : "VIEWER_CANNOT_COMMENT"
+      }
+    },
+    "crawlTimeMsec" : "1274912291228",
+    "timestampUsec" : "1274912291228292",
+    "id" : "tag:google.com,2005:reader/item/76d8c60d29b322c9",
+    "categories" : [ "user/11034465876805643143/source/com.google/link", "user/11034465876805643143/state/com.google/broadcast", "user/11034465876805643143/state/com.google/read" ],
+    "title" : "LittleDog: el pequeño robot que aprende trucos para caminar",
+    "published" : 1274912291,
+    "updated" : 1274912291,
+    "related" : [ {
+      "href" : "http://www.microsiervos.com/",
+      "title" : "Microsiervos"
+    } ],
+    "alternate" : [ {
+      "href" : "http://www.microsiervos.com/archivo/tecnologia/littledig-pequeno-robot.html",
+      "type" : "text/html"
+    } ],
+    "content" : {
+      "direction" : "ltr",
+      "content" : "<p align=\"center\"><a href=\"http://www.youtube.com/watch?v=nUQsRPJ1dYw\" title=\"Ver vídeo: The latest version of the LittleDog Robot\">Ver vídeo: The latest version of the LittleDog Robot </a><br><cite><a href=\"http://www.youtube.com/watch?v=nUQsRPJ1dYw&amp;showinfo=0&amp;hd=1&amp;fs=1\"><strong>The latest version of the LittleDog Robot</strong></a> [2 min.]</cite></p>\n\n<p>Desde el <em>departamento de robots que asustan</em> de la Universidad de California del Sur, vía <a href=\"http://www.botjunkie.com/2010/05/24/littledog-gets-smarter-more-confident\">BotJunkie</a>, llega este ejemplar en miniatura capaz de aprender «trucos» para andar por terrenos hostiles. El vídeo está en tiempo real, sin acelerar. A mi por su aspecto me recuerda un poco a una cabeza de Alien con patas (¡puag!); el típico robot de esos que te deja una sensación <a href=\"http://www.cookingideas.es/el-extrano-valle-inquietante-de-la-robotica-mas-alla-de-las-maquinas-que-parecen-humanas-20100518.html\">medio de admiración medio de asco</a>… </p>\n\n<div>\n<ul>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/otro-asombroso-robot-bola.html\">Otro asombroso robot-bola que hace equilibrios</a>, increíble</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/robots-monobola.html\">Robots Monobola</a>, dinámicamente estables</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/robot-pendulo.html\">Un robot que mantiene un péndulo invertido en equilibrio</a>, ¡es difícil!</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/robot-esferico-giroscopios.html\">El «robot» esférico controlado por giroscopios y radiocontrol</a>, simpático</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/robots-equilibristas-lego.html\">Un par de robots «equilibristas»</a> construidos con LEGO Mindstorms</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/a-pod-robot-hormiga.html\">A-Pod, el robot-hormiga</a> (preferiría no tener que enfrentarme a este bicho)</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/brazo-robot-controlado-cerebro-mono.html\">Brazo robot controlado por el cerebro de un mono</a>, curioso</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/el-robot-que-juega-el-voleibol.html\">El robot que juega al voleibol</a>, eso es habilidad</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/petman-robot-bipedo-asusta.html\">PETMAN, otro robot que anda, corre y también asusta un poco</a>, ¡ouch!</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/robot-esferico-giroscopios.html\">El «robot» esférico controlado por giroscopios y radiocontrol</a>, muy ágil</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/embrion-terminator-t-1000.html\">El embrión de un Terminator T-1000</a>, un robot maleable</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/dash-cucaracha-robotica.html\">DASH: la cucaracha robótica</a>, resiste caídas de ocho pisos de altura</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/el-robot-malabarista.html\">Un robot malabarista</a>, demostrando un «más difícil todavía»</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/asimo-esquivando-obstaculos.html\">ASIMO esquivando obstáculos</a>, cada vez más inteligente</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/manos-roboticas.html\">Manos robóticas</a>, moviéndose a toda velocidad</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/robots-que-juegan-al-beisbol.html\">Robots que juegan al beisbol</a>, más allá del «tiempo real»</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/robot-toyota-corre.html\">El robot de Toyota que corre rápido</a>, hasta 7 Km/h</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/pr2-alpha-robot-enchufes-recargarse.html\">PR2 alpha: el robot que localiza enchufes</a> en los que recargarse</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/trilobot-robot-ligero.html\">Trilobot, un robot ligero</a> y autónomo</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/robot-trepador.html\">Robot trepador</a> y algo inquietante, todo sea dicho</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/robots-equilibristas-lego.html\">Un par de robots «equilibristas»</a> construidos con LEGO Mindstorms</li>\n<li><a href=\"http://www.microsiervos.com/archivo/mundoreal/tweenbots-ayuda-robot-recorrido.html\">Robots artesanales para sacar lo bueno de la gente</a>, entrañables</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/asimo-aprendiendo.html\">ASIMO aprendiendo</a>, diríase que es casi humano</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/robot-sube-escaleras.html\">Un robot sube-escaleras</a>, a modo de prototipo</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/mini-robots-auto-ensamblan.html\">Mini-robots que se auto-ensamblan</a> y se ayudan los unos a los otros</li>\n<li><a href=\"http://www.microsiervos.com/archivo/tecnologia/bigdog-robot.html\">Vídeo: BigDog, el robot que camina por cualquier sitio</a> (¡cualquiera!)</li>\n</ul>\n</div>\n<p><a href=\"http://www.microsiervos.com/archivo/tecnologia/littledig-pequeno-robot.html\"># Enlace Permanente</a></p><p><iframe src=\"http://feedads.g.doubleclick.net/%7Eah/f/pn0pku0jhab1i76bc1g75eeo30/300/250?ca=1&amp;fh=280#http%3A%2F%2Fwww.microsiervos.com%2Farchivo%2Ftecnologia%2Flittledig-pequeno-robot.html\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\" height=\"280\" scrolling=\"no\" width=\"100%\"></iframe></p><div>\n<a href=\"http://feeds.feedburner.com/%7Eff/microsiervos?a=DznbA0xUcuQ:_1a9JWF6Qlc:yIl2AUoC8zA\"><img src=\"http://feeds.feedburner.com/%7Eff/microsiervos?d=yIl2AUoC8zA\" border=\"0\"></a> <a href=\"http://feeds.feedburner.com/%7Eff/microsiervos?a=DznbA0xUcuQ:_1a9JWF6Qlc:7Q72WNTAKBA\"><img src=\"http://feeds.feedburner.com/%7Eff/microsiervos?d=7Q72WNTAKBA\" border=\"0\"></a> <a href=\"http://feeds.feedburner.com/%7Eff/microsiervos?a=DznbA0xUcuQ:_1a9JWF6Qlc:gIN9vFwOqvQ\"><img src=\"http://feeds.feedburner.com/%7Eff/microsiervos?i=DznbA0xUcuQ:_1a9JWF6Qlc:gIN9vFwOqvQ\" border=\"0\"></a> <a href=\"http://feeds.feedburner.com/%7Eff/microsiervos?a=DznbA0xUcuQ:_1a9JWF6Qlc:I9og5sOYxJI\"><img src=\"http://feeds.feedburner.com/%7Eff/microsiervos?d=I9og5sOYxJI\" border=\"0\"></a>\n</div>"
+    },
+    "comments" : [ ],
+    "annotations" : [ {
+      "content" : "Estos tipos están muy zarpados...",
+      "author" : "Avatar",
+      "userId" : "11034465876805643143",
+      "profileId" : "110310561168118869969"
+    } ],
+    "origin" : {
+      "streamId" : "user/11034465876805643143/source/com.google/link",
+      "title" : "Microsiervos",
+      "htmlUrl" : "http://www.microsiervos.com/"
+    }
+  } ]
+}

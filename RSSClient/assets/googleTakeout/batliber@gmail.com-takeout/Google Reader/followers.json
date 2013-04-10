@@ -1,0 +1,446 @@
+{
+  "friends" : [ {
+    "userIds" : [ "00568557098982015613" ],
+    "profileIds" : [ "108636518494327997981" ],
+    "contactId" : "4529550902358671130",
+    "photoUrl" : "/s2/photos/public/AIbEiAIAAABDCJ2MjLT_-cTtdyILdmNhcmRfcGhvdG8qKDk1ZmUzYjlmY2M4NzRhYjQzOThjMDQ5Yjk2MzVkZjc0NWJhNWYwYWUwAYpsarEJo8jR8QXX0BSrVeE30fgE",
+    "stream" : "user/00568557098982015613/state/com.google/broadcast",
+    "flags" : 544,
+    "types" : [ 0, 1, 3, 6, 7 ],
+    "displayName" : "Nestor Lemo",
+    "givenName" : "Nestor",
+    "n" : "",
+    "p" : "",
+    "groupId" : [ "18", "4064936711974156129", "2" ],
+    "websites" : [ {
+      "title" : "Álbumes web de Picasa",
+      "url" : "http://picasaweb.google.com/NestorLemo"
+    } ]
+  }, {
+    "userIds" : [ "02907619725292555377" ],
+    "profileIds" : [ "111024262667643773975" ],
+    "contactId" : "8784279837266531417",
+    "photoUrl" : "/s2/photos/public/AIbEiAIAAABECJfIh7zLj4P_mAEiC3ZjYXJkX3Bob3RvKihhMjkwZmFjMDgyNTc2NWNhOWMzNDRkZjhmYWM2MDQzYzNjNzE4YzdkMAEbmIjvyDI_QOJWiO3yxTAOEespFQ",
+    "stream" : "user/02907619725292555377/state/com.google/broadcast",
+    "flags" : 544,
+    "types" : [ 0, 1, 3, 6, 7 ],
+    "displayName" : "Fernando De León",
+    "givenName" : "Fernando",
+    "n" : "",
+    "p" : "",
+    "groupId" : [ "18", "4064936711974156129", "2" ],
+    "websites" : [ {
+      "title" : "Buzz",
+      "url" : "https://profiles.google.com/111024262667643773975/buzz"
+    }, {
+      "title" : "Fernando De León",
+      "url" : "http://www.youtube.com/user/nano2112"
+    } ]
+  }, {
+    "userIds" : [ "13115387188393831322" ],
+    "profileIds" : [ "104124709463278222086" ],
+    "contactId" : "64",
+    "photoUrl" : "/s2/photos/public/AIbEiAIAAABDCIb2j8PzrPqeOSILdmNhcmRfcGhvdG8qKGIyZjZiZTJhMzhiMGM4ODU1NjA3ODhhMTgzNzIyNWRiMjViZGM5NDUwAXx8uVslfH8LSZMUesg0cKh3gaB2",
+    "location" : "Montevideo",
+    "stream" : "user/13115387188393831322/state/com.google/broadcast",
+    "flags" : 544,
+    "types" : [ 0, 1, 3, 6, 7 ],
+    "displayName" : "Alberto Suarez",
+    "givenName" : "Alberto",
+    "n" : "",
+    "p" : "",
+    "groupId" : [ "18", "9999", "4064936711974156129", "2" ],
+    "occupation" : "Programador web. En general java, javascript, html, css y cualquier cosa que me parezca interesante",
+    "websites" : [ {
+      "title" : "albertosuarezv",
+      "url" : "http://uy.linkedin.com/in/albertosuarezv"
+    }, {
+      "title" : "elotrosuarez",
+      "url" : "http://twitter.com/elOtroSuarez"
+    } ]
+  }, {
+    "userIds" : [ "06980509410711277419" ],
+    "profileIds" : [ "111405024439597185533" ],
+    "contactId" : "2",
+    "photoUrl" : "/s2/photos/public/AIbEiAIAAABECP3z2sbSqbKjngEiC3ZjYXJkX3Bob3RvKigzY2YzZDZjNGI5ZGZlMzdhOGVjNmEzMTVlNjQ4ZWIwMzA2NWYxNmFiMAEv8o2OvxLQaLb8zJSEWEGXMv-gDw",
+    "stream" : "user/06980509410711277419/state/com.google/broadcast",
+    "flags" : 32,
+    "types" : [ 0, 3 ],
+    "displayName" : "Victoria Batalla",
+    "givenName" : "Victoria",
+    "n" : "",
+    "p" : "",
+    "groupId" : [ "4064936711974156129", "4064936711974156129", "2" ],
+    "websites" : [ {
+      "title" : "http://losviajesdel11.blogspot.com/",
+      "url" : "http://losviajesdel11.blogspot.com/"
+    }, {
+      "title" : "Buzz",
+      "url" : "https://profiles.google.com/111405024439597185533/buzz"
+    } ]
+  }, {
+    "userIds" : [ "03042889187707002583" ],
+    "profileIds" : [ "101726933999203778853" ],
+    "contactId" : "2664680266363552050",
+    "photoUrl" : "/s2/photos/public/AIbEiAIAAABDCKWC2KipqtP7FyILdmNhcmRfcGhvdG8qKDE3MjkwOGViZGNjOGU0NThmYjIxYzEyM2FiZWE5YmJjNGQ5Y2U2ODgwATXCvm3hWc4EytsnMIYNpXUc2r6C",
+    "stream" : "user/03042889187707002583/state/com.google/broadcast",
+    "flags" : 32,
+    "types" : [ 0, 3, 4, 6, 7 ],
+    "displayName" : "Dario Alvarez",
+    "givenName" : "Dario",
+    "n" : "",
+    "p" : "",
+    "groupId" : [ "18", "4064936711974156129", "2" ],
+    "websites" : [ {
+      "title" : "Buzz",
+      "url" : "https://profiles.google.com/101726933999203778853/buzz"
+    }, {
+      "title" : "Álbumes web de Picasa",
+      "url" : "http://picasaweb.google.com/101726933999203778853"
+    }, {
+      "title" : "Dario Alvarez",
+      "url" : "http://www.youtube.com/user/dariol9"
+    } ]
+  }, {
+    "userIds" : [ "07507470284222627561", "08682365060861176789" ],
+    "profileIds" : [ "111874880592682678763", "116018088536873282057" ],
+    "contactId" : "6764547944912557758",
+    "photoUrl" : "/s2/photos/public/AIbEiAIAAABECOvzn6i7n4PmpAEiC3ZjYXJkX3Bob3RvKihiMTVhOTNjYmIwMzA2Mjc3MDg2Y2U4N2VlZWZhYmYyOGVjNmE1ZDgwMAHRnEMx1D1vUz3o3R705PVl5OSysQ",
+    "location" : "Montevideo",
+    "stream" : "user/07507470284222627561/state/com.google/broadcast",
+    "flags" : 32,
+    "types" : [ 0, 3, 4, 6, 7 ],
+    "displayName" : "Saul Scanziani",
+    "givenName" : "Saul",
+    "n" : "",
+    "p" : "",
+    "groupId" : [ "18", "4064936711974156129", "2" ],
+    "occupation" : "Ingeniero",
+    "websites" : [ {
+      "title" : "Twitter",
+      "url" : "http://twitter.com/saulsknz"
+    }, {
+      "title" : "LinkedIn",
+      "url" : "http://www.linkedin.com/in/scanziani"
+    }, {
+      "title" : "Saul Scanziani",
+      "url" : "http://www.youtube.com/user/SaulSknz"
+    }, {
+      "title" : "Wheel - Software Craftsmanship",
+      "url" : "http://www.wheel.com.uy"
+    } ]
+  }, {
+    "userIds" : [ "06535812442914595955" ],
+    "profileIds" : [ "113188671133709924972" ],
+    "contactId" : "2954970339161503733",
+    "photoUrl" : "/s2/photos/public/AIbEiAIAAABECOz06YHQ0OSDtwEiC3ZjYXJkX3Bob3RvKig3OTY5MzUxMmZjNjI2M2I3ZWRjZWJjZjljMzRiYTcwNjQyODk1ZTNjMAF0rfQiWdLqv42EQlcScN0V74SaLQ",
+    "location" : "Montevideo",
+    "stream" : "user/06535812442914595955/state/com.google/broadcast",
+    "flags" : 32,
+    "types" : [ 0, 3, 4, 6, 7 ],
+    "displayName" : "Luis Chiruzzo",
+    "givenName" : "Luis",
+    "n" : "",
+    "p" : "",
+    "groupId" : [ "18", "6950123603402960343", "6950123603402960343", "2" ],
+    "websites" : [ {
+      "title" : "Buzz",
+      "url" : "https://profiles.google.com/113188671133709924972/buzz"
+    } ]
+  }, {
+    "userIds" : [ "06404890910941365246" ],
+    "profileIds" : [ "111952903268443450656" ],
+    "contactId" : "7390101350219165581",
+    "photoUrl" : "/s2/photos/public/AIbEiAIAAABECKDatbGYxs_wpQEiC3ZjYXJkX3Bob3RvKigwNzEwM2Y5MmU4NTAxMmY0ZTI1MWM1N2Y3NjY0ZGE1N2IxOGRlNTE3MAHtRLiL27KaPuP0dokLDDwFMhhiHQ",
+    "stream" : "user/06404890910941365246/state/com.google/broadcast",
+    "flags" : 32,
+    "types" : [ 0, 3, 4, 6, 7 ],
+    "displayName" : "Fabian Bueno",
+    "givenName" : "Fabian",
+    "n" : "",
+    "p" : "",
+    "groupId" : [ "18", "6950123603402960343" ],
+    "websites" : [ {
+      "title" : "http://www.facebook.com/profile.php?id=100002433866700",
+      "url" : "http://www.facebook.com/profile.php?id=100002433866700"
+    }, {
+      "title" : "wfabianbl",
+      "url" : "http://twitter.com/wfabianbl"
+    } ]
+  }, {
+    "userIds" : [ "15337307537683554459", "00810362182114592503" ],
+    "profileIds" : [ "108539740319885417949", "100286140465702589218" ],
+    "contactId" : "38",
+    "photoUrl" : "/s2/photos/private/AIbEiAIAAABDCN2754a1ktDBdiILdmNhcmRfcGhvdG8qKGZmNjNlMzhhMWI0NDQyOGFhYmMxOTViMDE2ZDMyNGRlMTc0YzI2OWMwAZ4qKjLBFf7q83Op05B57nV2mYvD",
+    "location" : "Montevideo - Uruguay",
+    "stream" : "user/15337307537683554459/state/com.google/broadcast",
+    "flags" : 32,
+    "types" : [ 0, 3, 4 ],
+    "displayName" : "José Luis Fernandez",
+    "givenName" : "José Luis",
+    "n" : "",
+    "p" : "",
+    "groupId" : [ "18", "4064936711974156129", "2" ]
+  }, {
+    "userIds" : [ "14993771812650278485" ],
+    "profileIds" : [ "111292046651098170509" ],
+    "contactId" : "4396684927275912994",
+    "stream" : "user/14993771812650278485/state/com.google/broadcast",
+    "flags" : 32,
+    "types" : [ 0, 3, 4, 6, 7 ],
+    "displayName" : "Fabian Esteban Alvarez Pereira",
+    "givenName" : "Fabian Esteban",
+    "n" : "",
+    "p" : "",
+    "groupId" : [ "18", "4064936711974156129", "2" ],
+    "websites" : [ {
+      "title" : "Fabian Esteban Alvarez Pereira",
+      "url" : "http://www.youtube.com/user/orcobon"
+    }, {
+      "title" : "Buzz",
+      "url" : "https://profiles.google.com/111292046651098170509/buzz"
+    } ]
+  }, {
+    "userIds" : [ "17388980176511406756" ],
+    "profileIds" : [ "103309512305189830058" ],
+    "contactId" : "60",
+    "photoUrl" : "/s2/photos/private/AIbEiAIAAABDCKr7_pSD_e_2LSILdmNhcmRfcGhvdG8qKDk3MjY4NDM3ODQ4ZmZkZWExN2MzZWRhYjI5ZTVkMTYxNzBmN2ZkYzYwAatn1BdRuVZvnEszFz5DAENg4ZSo",
+    "stream" : "user/17388980176511406756/state/com.google/broadcast",
+    "flags" : 32,
+    "types" : [ 0, 3 ],
+    "displayName" : "Santiago Cioli",
+    "givenName" : "Santiago",
+    "n" : "",
+    "p" : "",
+    "groupId" : [ "6950123603402960343", "6950123603402960343", "2" ]
+  }, {
+    "userIds" : [ "09717520642675808077" ],
+    "profileIds" : [ "115667888532642439652" ],
+    "contactId" : "3291719869927768945",
+    "photoUrl" : "/s2/photos/public/AIbEiAIAAABECOTDxoS8s-G32QEiC3ZjYXJkX3Bob3RvKigwYWZlZjA4MGQzOTliZmVmMTkxMmE4MDM3ZjZjMWFjMzRjZmJlNWIyMAFHt_g9XwBvmIT0WryD2trJrh1TKQ",
+    "stream" : "user/09717520642675808077/state/com.google/broadcast",
+    "flags" : 32,
+    "types" : [ 0, 3, 4, 6, 7 ],
+    "displayName" : "Wilington Ruiz",
+    "givenName" : "Wilington",
+    "n" : "",
+    "p" : "",
+    "groupId" : [ "18", "4064936711974156129", "4064936711974156129", "2" ],
+    "websites" : [ {
+      "title" : "Buzz",
+      "url" : "https://profiles.google.com/115667888532642439652/buzz"
+    } ]
+  }, {
+    "userIds" : [ "16358750338603745121" ],
+    "profileIds" : [ "107153564569387467374" ],
+    "contactId" : "67",
+    "stream" : "user/16358750338603745121/state/com.google/broadcast",
+    "flags" : 32,
+    "types" : [ 0, 3 ],
+    "displayName" : "Javier Rios",
+    "givenName" : "Javier",
+    "n" : "",
+    "p" : "",
+    "groupId" : [ "9999", "4064936711974156129", "2" ]
+  }, {
+    "userIds" : [ "14201780498984405366" ],
+    "profileIds" : [ "115464366486561016748" ],
+    "contactId" : "74",
+    "photoUrl" : "/s2/photos/private/AIbEiAIAAABECKyXs5-s7J3O1gEiC3ZjYXJkX3Bob3RvKihhNDc1ZWJiZWE2M2JkMjIyY2VkN2RkZTM4NTJjMmMzYjFlN2ZkOGU3MAHp9PTU9LOBDAePZyyNBgLtH7Nn5Q",
+    "stream" : "user/14201780498984405366/state/com.google/broadcast",
+    "flags" : 0,
+    "types" : [ 0, 3 ],
+    "displayName" : "Victoria Koster",
+    "givenName" : "Victoria",
+    "n" : "",
+    "p" : "",
+    "groupId" : [ "4064936711974156129", "2" ]
+  }, {
+    "userIds" : [ "06610208858223114919" ],
+    "profileIds" : [ "114871382784755440680" ],
+    "contactId" : "228151160541601700",
+    "stream" : "user/06610208858223114919/state/com.google/broadcast",
+    "flags" : 32,
+    "types" : [ 0, 3, 4 ],
+    "displayName" : "Jorge Triñanes",
+    "givenName" : "Jorge",
+    "n" : "",
+    "p" : "",
+    "groupId" : [ "18", "6950123603402960343", "2" ]
+  }, {
+    "userIds" : [ "09956976579857825097" ],
+    "profileIds" : [ "102396792100464015890" ],
+    "contactId" : "2481104984616499350",
+    "photoUrl" : "/s2/photos/public/AIbEiAIAAABDCJL0-qT3tsehISILdmNhcmRfcGhvdG8qKDRkNjAzMjA2MTM0ZDA3ZmQxZjU2NDQ0YWU3OTA3YTIyMmQxMjZkMWQwAc7TSbRx31LzJnPZTCThRvctx_m7",
+    "stream" : "user/09956976579857825097/state/com.google/broadcast",
+    "flags" : 32,
+    "types" : [ 0, 3, 4, 6, 7 ],
+    "displayName" : "Liliana Paolini",
+    "givenName" : "Liliana",
+    "n" : "",
+    "p" : "",
+    "groupId" : [ "18", "4064936711974156129", "2" ],
+    "websites" : [ {
+      "title" : "Buzz",
+      "url" : "https://profiles.google.com/102396792100464015890/buzz"
+    } ]
+  }, {
+    "userIds" : [ "16482793855782291739" ],
+    "profileIds" : [ "116288211938934627537" ],
+    "contactId" : "5475486555583519124",
+    "photoUrl" : "/s2/photos/public/AIbEiAIAAABECNG55rPbztaF4gEiC3ZjYXJkX3Bob3RvKihmZDY2MzZhYTNiYjZlOWUyN2JmNjBjYmRlYzU4YmI4NWQyM2JjNjcyMAG8XJLLApg8L8blP6v2X7wr-MX5wQ",
+    "stream" : "user/16482793855782291739/state/com.google/broadcast",
+    "flags" : 32,
+    "types" : [ 0, 3 ],
+    "displayName" : "Pablo Alfaro",
+    "givenName" : "Pablo",
+    "n" : "",
+    "p" : "",
+    "groupId" : [ "4064936711974156129", "2" ],
+    "websites" : [ {
+      "title" : "Buzz",
+      "url" : "https://profiles.google.com/116288211938934627537/buzz"
+    } ]
+  }, {
+    "userIds" : [ "13801274901147417051" ],
+    "profileIds" : [ "100278660632081501558" ],
+    "contactId" : "4125138652142700758",
+    "photoUrl" : "/s2/photos/public/AIbEiAIAAABDCPaa6qDli4DvAyILdmNhcmRfcGhvdG8qKDhlYTNiMWEzZjVlMDkxMzdmOTZmMTIzMzRmNzg4MzU5OTU0NTkzMDMwAfosL6DF2475DylGMML39P1nnpf2",
+    "location" : "Montevideo",
+    "stream" : "user/13801274901147417051/state/com.google/broadcast",
+    "flags" : 32,
+    "types" : [ 0, 3 ],
+    "displayName" : "Damian Leis",
+    "givenName" : "Damian",
+    "n" : "",
+    "p" : "",
+    "groupId" : [ "6950123603402960343", "2" ],
+    "occupation" : "Analista programador",
+    "websites" : [ {
+      "title" : "Damian Leis",
+      "url" : "http://www.youtube.com/user/cumbrista"
+    } ]
+  }, {
+    "userIds" : [ "16284640554528643717", "13041311701056101467" ],
+    "profileIds" : [ "102009907933357290050", "115263833728667399091" ],
+    "contactId" : "655712116132626542",
+    "stream" : "user/16284640554528643717/state/com.google/broadcast",
+    "flags" : 256,
+    "types" : [ 0, 3 ],
+    "displayName" : "16284640554528643717",
+    "givenName" : "16284640554528643717",
+    "n" : "",
+    "p" : "",
+    "groupId" : [ "6950123603402960343", "6950123603402960343", "6950123603402960343", "2" ]
+  }, {
+    "userIds" : [ "01744838108156443849" ],
+    "profileIds" : [ "118386160949680501072" ],
+    "contactId" : "-1",
+    "photoUrl" : "/s2/photos/public/AIbEiAIAAABECNDi9eaD_7CU_wEiC3ZjYXJkX3Bob3RvKihhYTk0YTEyZDE3ZmJmOGI4MWRiMDY2NjMxYmUxMmY2Yjk5ZDExNjU2MAHew7rQy_GOV8wJ3G-rJcUpvFvv8g",
+    "location" : "treinta y tres",
+    "stream" : "user/01744838108156443849/state/com.google/broadcast",
+    "flags" : 32,
+    "types" : [ 0 ],
+    "displayName" : "Federico Meneses",
+    "givenName" : "Federico",
+    "n" : "",
+    "p" : "",
+    "occupation" : "fotógrafo - artista visual - diseñador",
+    "websites" : [ {
+      "title" : "fotos",
+      "url" : "http://picasaweb.google.com/fedemeneses"
+    }, {
+      "title" : "Mis elementos compartidos en Google Reader",
+      "url" : "http://www.google.com/reader/shared/01744838108156443849"
+    }, {
+      "title" : "Ronda de Poetas",
+      "url" : "http://rondadepoetas.blogspot.com/"
+    }, {
+      "title" : "óbolo cultural blog",
+      "url" : "http://obolocultural.blogspot.com"
+    }, {
+      "title" : "influencia en Google+",
+      "url" : "http://www.plusclout.com/profile?id=118386160949680501072"
+    }, {
+      "title" : "Seguinos en facebook",
+      "url" : "https://www.facebook.com/pages/cooltivartecom/163210523725869"
+    }, {
+      "title" : "Buzz",
+      "url" : "https://profiles.google.com/118386160949680501072/buzz"
+    }, {
+      "title" : "videohome",
+      "url" : "http://www.youtube.com/user/fedemeneses"
+    }, {
+      "title" : "Linkedin",
+      "url" : "http://uy.linkedin.com/pub/%C3%B3bolo-cultural/23/392/195"
+    }, {
+      "title" : "Pinterest",
+      "url" : "http://pinterest.com/cooltivarte/"
+    }, {
+      "title" : "visionxo",
+      "url" : "http://visionxo.blogspot.com"
+    }, {
+      "title" : "uninventario",
+      "url" : "http://uninventario.blogspot.com/"
+    }, {
+      "title" : "montevideofoto",
+      "url" : "http://www.montevideofoto.org"
+    }, {
+      "title" : "cooltivarte - óbolo cultural",
+      "url" : "http://www.cooltivarte.com"
+    }, {
+      "title" : "noticias montevideofoto blog",
+      "url" : "http://montevideofoto.blogspot.com"
+    }, {
+      "title" : "obolocultural",
+      "url" : "http://twitter.com/obolocultural"
+    } ]
+  }, {
+    "userIds" : [ "17884614152350480312" ],
+    "profileIds" : [ "107506375768198606720" ],
+    "contactId" : "-1",
+    "photoUrl" : "/s2/photos/public/AIbEiAIAAABDCIDfz_DZn4CWaCILdmNhcmRfcGhvdG8qKGRmMWM2MDhiM2ExYTk1OGUzYTE3ZTU1NzNjNmZjODc4Y2QxYjIyZWUwAdKFfl0heCpkF12HOpLk9cVdXekX",
+    "stream" : "user/17884614152350480312/state/com.google/broadcast",
+    "flags" : 32,
+    "types" : [ 0 ],
+    "displayName" : "Esteban Revello",
+    "givenName" : "Esteban",
+    "n" : "",
+    "p" : "",
+    "websites" : [ {
+      "title" : "Buzz",
+      "url" : "https://profiles.google.com/107506375768198606720/buzz"
+    }, {
+      "title" : "erevello",
+      "url" : "http://www.facebook.com/erevello"
+    }, {
+      "title" : "erevello",
+      "url" : "http://twitter.com/erevello"
+    }, {
+      "title" : "erevello",
+      "url" : "http://www.linkedin.com/in/erevello"
+    }, {
+      "title" : "esteban.revello@gmail.com",
+      "url" : "http://profile.live.com/cid-3d93f45af8656a30"
+    }, {
+      "title" : "Esteban Revello",
+      "url" : "http://www.youtube.com/user/gh2suscripcion"
+    } ]
+  }, {
+    "userIds" : [ "11034465876805643143" ],
+    "profileIds" : [ "110310561168118869969" ],
+    "contactId" : "-1",
+    "stream" : "user/11034465876805643143/state/com.google/broadcast",
+    "flags" : 33,
+    "displayName" : "Liber Batalla",
+    "givenName" : "Liber",
+    "n" : "",
+    "p" : "",
+    "websites" : [ {
+      "title" : "Buzz",
+      "url" : "https://profiles.google.com/110310561168118869969/buzz"
+    } ],
+    "hasSharedItemsOnProfile" : false
+  } ],
+  "encodedSharersList" : "CNnphbGSEBDJsdyB4QgQz7qUgLETEMiImdyOAw"
+}

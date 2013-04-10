@@ -1,0 +1,190 @@
+body {
+	font-family: Arial;
+	font-size: 9.5pt;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+.divFolders {
+	font-weight: bold;
+	font-size: 10pt;
+	width: 300px;
+	height: 600px;
+	overflow: auto;
+	float: left;
+	white-space: nowrap;
+}
+
+.divFolderIcon {
+	width: 25px;
+	float: left;
+	background: url("../images/folders-sprite.png") no-repeat scroll 0 0 transparent;
+	background-position: -42px -118px;
+	opacity: 0.4;
+}
+
+.divFolder {
+	float: left;
+	padding-right: 5px;
+	padding-top: 2px;
+}
+
+.divUnreadCount {
+	color: #888;
+	font-weight: normal;
+	padding-top: 2px;
+}
+
+.divSubscription {
+	float: left;
+	padding-left: 20px;
+	padding-right: 5px;
+	padding-top: 2px;
+}
+
+.divItems {
+	height: 600px;
+	overflow: auto;
+}
+
+.openItem {
+	border-top: solid 1px #CCC;
+	border-left: solid 1px #4D90F0;
+	border-right: solid 1px #CCC;
+	background-color: #EEE;
+	height: 20px;
+	padding-top: 4px;
+	padding-left: 2px;
+}
+
+.openSubscriptionTitle {
+	border-top: solid 1px #CCC;
+	border-left: solid 1px #4D90F0;
+	background-color: #EEE;
+	width: 175px;
+	height: 20px;
+	float: left;
+	padding-top: 4px;
+	padding-left: 2px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.openItemPubDate {
+	border-top: solid 1px #CCC;
+	background-color: #EEE;
+	height: 20px;
+	width: 125px;
+	text-align: center;
+	float: left;
+	padding-top: 4px;
+	padding-left: 2px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.openItemTitle {
+	border-top: solid 1px #CCC;
+	background-color: #EEE;
+	height: 20px;
+	float: left;
+	padding-top: 4px;
+	padding-left: 5px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.openItemText {
+	border-top: solid 1px #CCC;
+	background-color: #EEE;
+	height: 20px;
+	padding-top: 4px;
+	padding-left: 2px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.openItemLink {
+	border-left: solid 1px #4D90F0;
+	border-right: solid 1px #CCC;
+	padding-top: 1px;
+	padding-left: 2px;
+	font-size: 14pt;
+	height: 30px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.aOpenItemLink {
+	font-weight: bold;
+	color: blue;
+}
+
+.openItemHTML {
+	border-left: solid 1px #4D90F0;
+	border-right: solid 1px #CCC;
+	padding-top: 1px;
+	padding-left: 2px;
+}
+
+.openItemTools {
+	border-top: solid 1px #EFEFEF;
+	border-left: solid 1px #4D90F0;
+	border-right: solid 1px #CCC;
+	background-color: #FAFAFA;
+	height: 30px;
+}
+
+.aOpenItemToolsKeepUnread {
+	margin-top: 10px;
+}
+
+.subscriptionTitle {
+	border-top: solid 1px #CCC;
+	border-left: solid 1px #CCC;
+	color: #555;
+	height: 20px;
+	width: 175px;
+	float: left;
+	padding-top: 4px;
+	padding-left: 2px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.itemPubDate {
+	border-top: solid 1px #CCC;
+	color: #777;
+	height: 20px;
+	width: 125px;
+	text-align: center;
+	float: left;
+	padding-top: 4px;
+	padding-left: 2px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.itemTitle {
+	font-weight: bold;
+	border-top: solid 1px #CCC;
+	height: 20px;
+	float: left;
+	padding-top: 4px;
+	padding-left: 5px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.itemText {
+	border-top: solid 1px #CCC;
+	color: #777;
+	height: 20px;
+	padding-top: 4px;
+	padding-left: 2px;
+	overflow: hidden;
+	white-space: nowrap;
+}
