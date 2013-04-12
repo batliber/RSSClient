@@ -164,10 +164,8 @@ public class TestFeedReader {
 //		
 //		FolderDAO.getInstance().createFolders(folders);
 		
-//		for (String folderName : folders.keySet()) {
-//			Folder folder = folders.get(folderName);
-//			
-//			SubscriptionDAO.getInstance().createSubscriptions(folder, subscriptions.get(folderName));
+//		for (Folder folder : folders) {
+//			SubscriptionDAO.getInstance().createSubscriptions(folder, folder.getSubscriptions());
 //		}
 //		
 //		for (String folderName : subscriptions.keySet()) {

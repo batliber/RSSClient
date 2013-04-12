@@ -321,13 +321,15 @@ public class ItemDAO extends AbstractDAO {
 		dbObject.put("link", item.getLink().toString());
 		dbObject.put("read", read);
 		
-		DBRef dbRef = new DBRef(this.db, FolderDAO.getInstance().getCollectionName(), folder.getId());
-		
-		dbObject.put("folder", dbRef);
-		
-		dbRef = new DBRef(this.db, SubscriptionDAO.getInstance().getCollectionName(), subscription.getId());
+		DBRef dbRef = new DBRef(this.db, SubscriptionDAO.getInstance().getCollectionName(), subscription.getId());
 		
 		dbObject.put("subscription", dbRef);
+		
+		if (folder != null) {
+			dbRef = new DBRef(this.db, FolderDAO.getInstance().getCollectionName(), folder.getId());
+			
+			dbObject.put("folder", dbRef);
+		}
 		
 		return dbObject;
 	}

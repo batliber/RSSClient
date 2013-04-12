@@ -1,10 +1,14 @@
 package dao;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Map;
 
 import org.bson.types.ObjectId;
 
+import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
@@ -96,10 +100,21 @@ public class SubscriptionDAO extends AbstractDAO {
 		result.setUnread(new Long(0));
 		
 		if (!shallow) {
-			DBRef dbRef = (DBRef) dbObject.get("folder");
-			DBObject dbObjectFolder = dbRef.fetch();
+			Collection<Folder> folders = new LinkedList<Folder>();
 			
-			result.setFolder(FolderDAO.getInstance().pojoFromBSON(dbObjectFolder, true));
+			BasicDBList basicDBList = (BasicDBList) dbObject.get("folders");
+			if (basicDBList != null) {
+				for (Iterator<Object> iterator = basicDBList.iterator(); iterator.hasNext();) {
+					DBRef dbRef = (DBRef) iterator.next();
+					DBObject dbObjectFolder = dbRef.fetch();
+					
+					Folder folder = FolderDAO.getInstance().pojoFromBSON(dbObjectFolder, true);
+					
+					folders.add(folder);
+				}
+			}
+			
+			result.setFolders(folders);
 		}
 		
 		return result;
@@ -115,9 +130,13 @@ public class SubscriptionDAO extends AbstractDAO {
 		result.put("siteURL", subscription.getSiteURL());
 		result.put("title", subscription.getTitle());
 		
-		DBRef dbRef = new DBRef(this.db, FolderDAO.getInstance().getCollectionName(), subscription.getFolder().getId());
-		
-		result.put("folder", dbRef);
+		Collection<DBRef> subscriptionFoldersRefs = new LinkedList<DBRef>();
+		for (Folder folder : subscription.getFolders()) {
+			DBRef dbRefFolder = new DBRef(this.db, FolderDAO.getInstance().getCollectionName(), folder.getId());
+			
+			subscriptionFoldersRefs.add(dbRefFolder);
+		}
+		result.put("folders", subscriptionFoldersRefs);
 		
 		return result;
 	}
@@ -140,6 +159,85 @@ public class SubscriptionDAO extends AbstractDAO {
 				
 				this.db.requestStart();
 				WriteResult result = this.dbCollection.insert(basicDBObject);
+				result.getLastError().throwOnError();
+				this.db.requestDone();
+			}
+			
+			this.disconnect();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateSubscriptionsFolders() {
+		try {
+			this.connect();
+			this.dbCollection = this.db.getCollection(this.collectionName);
+			
+			DBCursor dbCursor = this.dbCollection.find();
+			
+			Map<String, Collection<Folder>> folders = new HashMap<String, Collection<Folder>>();
+			Map<String, Subscription> subscriptions = new HashMap<String, Subscription>();
+			
+			if (dbCursor != null) {
+				while (dbCursor.hasNext()) {
+					DBObject dbObject = dbCursor.next();
+					
+					Subscription subscription = new Subscription();
+					
+					subscription.setFeedURL(dbObject.get("feedURL").toString());
+					subscription.setId(new ObjectId(dbObject.get("_id").toString()));
+					subscription.setSiteURL(dbObject.get("siteURL").toString());
+					subscription.setTitle(dbObject.get("title").toString());
+					
+					Folder folder = new Folder();
+					
+					DBObject dbObjectFolder = (DBObject) ((DBRef) dbObject.get("folder")).fetch();
+					
+					folder.setId((ObjectId) dbObjectFolder.get("_id"));
+					
+//					subscription.setFolder(folder);
+//					
+//					subscriptions.put(subscription.getTitle(), subscription);
+//					
+//					if (folders.containsKey(subscription.getTitle())) {
+//						if (!folders.get(subscription.getTitle()).contains(subscription.getFolder())) {
+//							folders.get(subscription.getTitle()).add(subscription.getFolder());
+//						}
+//					} else {
+//						Collection<Folder> subscriptionFolders = new LinkedList<Folder>();
+//						
+//						subscriptionFolders.add(subscription.getFolder());
+//						
+//						folders.put(subscription.getTitle(), subscriptionFolders);
+//					}
+				}
+				dbCursor.close();
+			}
+			
+//			this.db.requestStart();
+//			WriteResult result = this.dbCollection.remove(new BasicDBObject());
+//			result.getLastError().throwOnError();
+//			this.db.requestDone();
+			
+			for (Subscription subscription : subscriptions.values()) {
+				subscription.setFolders(folders.get(subscription.getTitle()));
+				
+				DBObject dbObjectSubscription = new BasicDBObject();
+				dbObjectSubscription.put("feedURL", subscription.getFeedURL());
+				dbObjectSubscription.put("siteURL", subscription.getSiteURL());
+				dbObjectSubscription.put("title", subscription.getTitle());
+				
+				Collection<DBRef> subscriptionFoldersRefs = new LinkedList<DBRef>();
+				for (Folder folder : folders.get(subscription.getTitle())) {
+					DBRef dbRefFolder = new DBRef(this.db, FolderDAO.getInstance().getCollectionName(), folder.getId());
+					
+					subscriptionFoldersRefs.add(dbRefFolder);
+				}
+				dbObjectSubscription.put("folders", subscriptionFoldersRefs);
+				
+				this.db.requestStart();
+				WriteResult result = this.dbCollection.insert(dbObjectSubscription);
 				result.getLastError().throwOnError();
 				this.db.requestDone();
 			}

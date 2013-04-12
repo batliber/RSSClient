@@ -18,18 +18,38 @@ a {
 	white-space: nowrap;
 }
 
-.divFolderIcon {
-	width: 25px;
+.divFolderStatusOpen {
+	width: 18px;
 	float: left;
 	background: url("../images/folders-sprite.png") no-repeat scroll 0 0 transparent;
-	background-position: -42px -118px;
+	background-position: -22px -118px;
+	opacity: 1;
+}
+
+.divFolderStatusClosed {
+	width: 18px;
+	float: left;
+	background: url("../images/folders-sprite.png") no-repeat scroll 0 0 transparent;
+	background-position: 0px -118px;
+	opacity: 1;
+}
+
+.divFolderIcon {
+	width: 18px;
+	float: left;
+	background: url("../images/folders-sprite.png") no-repeat scroll 0 0 transparent;
+	background-position: -43px -118px;
 	opacity: 0.4;
 }
 
 .divFolder {
 	float: left;
-	padding-right: 5px;
 	padding-top: 2px;
+	padding-right: 5px;
+}
+
+.spanFolderName {
+	padding-left: 5px;
 }
 
 .divUnreadCount {
@@ -187,4 +207,15 @@ a {
 	padding-left: 2px;
 	overflow: hidden;
 	white-space: nowrap;
+}
+
+.divMoreItems {
+	font-weight: bold;
+	text-align: center;
+	background-color: #EEE;
+	border-top: solid 1px #CCC;
+	border-bottom: solid 1px #CCC;
+	border-left: solid 1px #CCC;
+	padding-top: 4px;
+	height: 20px;
 }

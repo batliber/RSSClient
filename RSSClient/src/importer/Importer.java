@@ -36,8 +36,8 @@ public class Importer {
 		try {
 			DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-			Document document = documentBuilder.parse(new File("/home/avatar/Escritorio/desarrollo/java/workspace/RSSClient/assets/googleTakeout/batliber@gmail.com-takeout/Google Reader/subscriptions.xml"));
-			
+//			Document document = documentBuilder.parse(new File("/home/avatar/Escritorio/desarrollo/java/workspace/RSSClient/assets/googleTakeout/batliber@gmail.com-takeout/Google Reader/subscriptions.xml"));
+			Document document = documentBuilder.parse(new File("C:\\Users\\lbatalla\\git\\RSSClient\\RSSClient\\assets\\googleTakeout\\batliber@gmail.com-takeout\\Google Reader\\subscriptions.xml"));
 			document.normalize();
 			
 			Node node = document.getElementsByTagName("body").item(0);
@@ -60,7 +60,7 @@ public class Importer {
 						subscription.setFeedURL(namedNodeMap.getNamedItem("xmlUrl").getNodeValue());
 						subscription.setSiteURL(namedNodeMap.getNamedItem("htmlUrl").getNodeValue());
 						subscription.setTitle(namedNodeMap.getNamedItem("title").getNodeValue());
-						subscription.setFolder(folder);
+//						subscription.setFolder(folder);
 						
 						subscriptions.add(subscription);
 					} else {
@@ -96,7 +96,7 @@ public class Importer {
 								subscription.setFeedURL(namedNodeMapSubNode.getNamedItem("xmlUrl").getNodeValue());
 								subscription.setSiteURL(namedNodeMapSubNode.getNamedItem("htmlUrl").getNodeValue());
 								subscription.setTitle(namedNodeMapSubNode.getNamedItem("title").getNodeValue());
-								subscription.setFolder(folder);
+//								subscription.setFolder(folder);
 								
 								subscriptions.add(subscription);
 							}

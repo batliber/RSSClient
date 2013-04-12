@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Collection;
+
 import org.bson.types.ObjectId;
 
 public class Subscription {
@@ -10,7 +12,7 @@ public class Subscription {
 	private String siteURL;
 	private Long unread;
 	
-	private Folder folder;
+	private Collection<Folder> folders;
 
 	public ObjectId getId() {
 		return id;
@@ -44,14 +46,6 @@ public class Subscription {
 		this.siteURL = siteURL;
 	}
 	
-	public Folder getFolder() {
-		return folder;
-	}
-
-	public void setFolder(Folder folder) {
-		this.folder = folder;
-	}
-	
 	public Long getUnread() {
 		return unread;
 	}
@@ -59,4 +53,13 @@ public class Subscription {
 	public void setUnread(Long unread) {
 		this.unread = unread;
 	}
+
+	public Collection<Folder> getFolders() {
+		return folders;
+	}
+
+	public void setFolders(Collection<Folder> folders) {
+		this.folders = folders;
+	}
+
 }

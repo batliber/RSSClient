@@ -48,7 +48,9 @@
 		if (requestedFolder != null && requestedFolder.getName().equals(folderName)) {
 			Collection<Subscription> folderSubscriptions = requestedFolder.getSubscriptions();
 %>
-		<div class="divFolderIcon">&nbsp;</div><div class="divFolder"><a href="reader.jsp"><%=folderName%></a></div><div class="divUnreadCount">(<%=folder.getUnread()%>)</div>
+		<div class="divFolderStatusOpen">&nbsp;</div>
+		<div class="divFolderIcon">&nbsp;</div>
+		<div class="divFolder"><a href="reader.jsp"><span class="spanFolderName"><%=folderName%></span></a></div><div class="divUnreadCount">(<%=folder.getUnread()%>)</div>
 <%
 			for (Subscription subscription : folderSubscriptions) {
 				String subscriptionText = subscription.getTitle().length() < 32 ? subscription.getTitle() : (subscription.getTitle().substring(0, 29) + "...");
@@ -62,7 +64,9 @@
 		} else {
 			if (folder.getUnread() > 0) {
 %>
-		<div class="divFolderIcon">&nbsp;</div><div class="divFolder"><a href="reader.jsp?folderId=<%=folder.getId()%>"><%=folderName%></a></div><div class="divUnreadCount">(<%=folder.getUnread()%>)</div>
+		<div class="divFolderStatusClosed">&nbsp;</div>
+		<div class="divFolderIcon">&nbsp;</div>
+		<div class="divFolder"><a href="reader.jsp?folderId=<%=folder.getId()%>"><span class="spanFolderName"><%=folderName%></span></a></div><div class="divUnreadCount">(<%=folder.getUnread()%>)</div>
 <%
 			}
 	
@@ -109,7 +113,7 @@
 				}
 			}
 %>
-		<div><a href="reader.jsp?folderId=<%= requestedFolder.getId() %>&limit=<%= limit != null ? limit + Constants.DEFAULT_ITEMS_LIMIT : "" %>">More items</a></div>
+		<div class="divMoreItems"><a href="reader.jsp?folderId=<%= requestedFolder.getId() %>&limit=<%= limit != null ? limit + Constants.DEFAULT_ITEMS_LIMIT : "" %>">::&nbsp;More items&nbsp;::</a></div>
 <%
 		}
 	} else {
@@ -146,7 +150,7 @@
 			}
 		}
 %>
-		<div><a href="reader.jsp?folderId=<%= requestedFolder.getId() %>&subscriptionId=<%= requestedSubscription.getId() %>&limit=<%= limit != null ? limit + Constants.DEFAULT_ITEMS_LIMIT : "" %>">More items</a></div>
+		<div class="divMoreItems"><a href="reader.jsp?folderId=<%= requestedFolder.getId() %>&subscriptionId=<%= requestedSubscription.getId() %>&limit=<%= limit != null ? limit + Constants.DEFAULT_ITEMS_LIMIT : "" %>">::&nbsp;More items&nbsp;::</a></div>
 <%
 	}
 

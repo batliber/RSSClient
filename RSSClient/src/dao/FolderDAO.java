@@ -37,7 +37,7 @@ public class FolderDAO extends AbstractDAO {
 	
 	public Map<String, Folder> listFolders() {
 		Map<String, Folder> result = new HashMap<String, Folder>();
-		Map<ObjectId, Folder> mapUnread = new HashMap<ObjectId, Folder>();
+		Map<ObjectId, Subscription> mapUnread = new HashMap<ObjectId, Subscription>();
 		
 		try {
 			this.connect();
@@ -52,7 +52,10 @@ public class FolderDAO extends AbstractDAO {
 					Folder folder = this.pojoFromBSON(dbObject, false);
 					
 					result.put(folder.getName(), folder);
-					mapUnread.put(folder.getId(), folder);
+					
+					for (Subscription subscription : folder.getSubscriptions()) {
+						mapUnread.put(subscription.getId(), subscription);
+					}
 				}
 				dbCursor.close();
 			}
@@ -60,7 +63,7 @@ public class FolderDAO extends AbstractDAO {
 			DBCollection itemCollection = this.db.getCollection(ItemDAO.getInstance().getCollectionName());
 			
 			DBObject dbObjectKey = new BasicDBObject();
-			dbObjectKey.put("folder", true);
+			dbObjectKey.put("subscription", true);
 			
 			DBObject dbObjectCondition = new BasicDBObject();
 			dbObjectCondition.put("read", false);
@@ -72,11 +75,19 @@ public class FolderDAO extends AbstractDAO {
 			for (Iterator<Object> iterator = countResult.iterator(); iterator.hasNext();) {
 				DBObject dbObjectCountResult = (DBObject) iterator.next();
 				
-				DBRef dbRef = (DBRef) dbObjectCountResult.get("folder");
+				DBRef dbRef = (DBRef) dbObjectCountResult.get("subscription");
 				
-				Long count = ((Double) dbObjectCountResult.get("count")).longValue();
-				
-				mapUnread.get(dbRef.getId()).setUnread(count);
+				if (dbRef != null) {
+					Long count = ((Double) dbObjectCountResult.get("count")).longValue();
+					
+					mapUnread.get(dbRef.getId()).setUnread(count);
+				}
+			}
+			
+			for (Folder folder : result.values()) {
+				for (Subscription subscription : folder.getSubscriptions()) {
+					folder.setUnread(folder.getUnread() + subscription.getUnread());
+				}
 			}
 			
 			this.disconnect();
@@ -168,7 +179,6 @@ public class FolderDAO extends AbstractDAO {
 			
 			DBObject dbObjectCondition = new BasicDBObject();
 			dbObjectCondition.put("read", false);
-			dbObjectCondition.put("folder", new DBRef(this.db, this.collectionName, result.getId()));
 			
 			DBObject dbObjectInitial = new BasicDBObject();
 			dbObjectInitial.put("count", 0);
@@ -181,10 +191,12 @@ public class FolderDAO extends AbstractDAO {
 				
 				Long count = ((Double) dbObjectCountResult.get("count")).longValue();
 				
-				Subscription subscription = mapUnread.get(dbRef.getId());
-				subscription.setUnread(count);
-				
-				result.setUnread(result.getUnread() + count);
+				if (mapUnread.containsKey(dbRef.getId())) {
+					Subscription subscription = mapUnread.get(dbRef.getId());
+					subscription.setUnread(count);
+					
+					result.setUnread(result.getUnread() + count);
+				}
 			}
 			
 			this.disconnect();
@@ -227,44 +239,63 @@ public class FolderDAO extends AbstractDAO {
 	public void updateFolderSubscriptions() {
 		try {
 			this.connect();
+			
 			this.dbCollection = this.db.getCollection(this.collectionName);
 			
-			DBCursor dbCursor = this.dbCollection.find();
+			DBCollection subscriptionCollection = this.db.getCollection(SubscriptionDAO.getInstance().getCollectionName());
+			
+			DBCursor dbCursor = subscriptionCollection.find();
+			
+			Map<ObjectId, Collection<Subscription>> folderSubscriptions = new HashMap<ObjectId, Collection<Subscription>>();
 			
 			if (dbCursor != null) {
 				while (dbCursor.hasNext()) {
 					DBObject dbObject = dbCursor.next();
 					
-					Folder folder = this.pojoFromBSON(dbObject, true);
+					Subscription subscription = new Subscription();
+					subscription.setId(new ObjectId(dbObject.get("_id").toString()));
 					
-					DBCollection subscriptionCollection = this.db.getCollection("Subscriptions");
-					
-					DBCursor dbCursorSubscriptions = subscriptionCollection.find();
-					
-					if (dbCursorSubscriptions != null) {
-						Collection<DBRef> subscriptionsRefs = new LinkedList<DBRef>();
-						
-						while (dbCursorSubscriptions.hasNext()) {
-							DBObject dbObjectSubscriptions = dbCursorSubscriptions.next();
+					BasicDBList basicDBList = (BasicDBList) dbObject.get("folders");
+					if (basicDBList != null) {
+						for (Iterator<Object> iterator = basicDBList.iterator(); iterator.hasNext();) {
+							DBRef dbRef = (DBRef) iterator.next();
 							
-							Subscription subscription = SubscriptionDAO.getInstance().pojoFromBSON(dbObjectSubscriptions, false);
-							
-							if (subscription.getFolder().getId().toString().equals(folder.getId().toString())) {
-								DBRef dbRefSubscription = new DBRef(this.db, "Subscriptions", dbObjectSubscriptions.get("_id"));
-							
-								subscriptionsRefs.add(dbRefSubscription);
+							if (folderSubscriptions.containsKey((ObjectId)dbRef.getId())) {
+								Collection<Subscription> subscriptions = folderSubscriptions.get((ObjectId)dbRef.getId());
+								
+								if (!subscriptions.contains(subscription)) {
+									subscriptions.add(subscription);
+								}
+							} else {
+								Collection<Subscription> subscriptions = new LinkedList<Subscription>();
+								
+								subscriptions.add(subscription);
+								
+								folderSubscriptions.put((ObjectId)dbRef.getId(), subscriptions);
 							}
 						}
-						
-						dbObject.put("subscriptions", subscriptionsRefs);
-						
-						this.db.requestStart();
-						WriteResult result = this.dbCollection.update(new BasicDBObject().append("_id", folder.getId()), dbObject);
-						result.getLastError().throwOnError();
-						this.db.requestDone();
 					}
 				}
 				dbCursor.close();
+			}
+			
+			for (ObjectId objectId : folderSubscriptions.keySet()) {
+				dbCursor = this.dbCollection.find(new BasicDBObject().append("_id", objectId));
+				if (dbCursor != null) {
+					DBObject dbObject = dbCursor.next();
+					
+					Collection<DBRef> subscriptions = new LinkedList<DBRef>();					
+					for (Subscription subscription : folderSubscriptions.get(objectId)) {
+						subscriptions.add(new DBRef(this.db, SubscriptionDAO.getInstance().getCollectionName(), subscription.getId()));
+					}
+					
+					dbObject.put("subscriptions", subscriptions);
+					
+					this.db.requestStart();
+					WriteResult result = this.dbCollection.update(new BasicDBObject().append("_id", objectId), dbObject);
+					result.getLastError().throwOnError();
+					this.db.requestDone();
+				}
 			}
 			
 			this.disconnect();
