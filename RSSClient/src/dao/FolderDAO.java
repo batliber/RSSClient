@@ -1,8 +1,6 @@
 package dao;
 
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -216,7 +214,7 @@ public class FolderDAO extends AbstractDAO {
 		result.setName(dbObject.get("name").toString());
 		
 		if (!shallow) {
-			List<Subscription> subscriptions = new LinkedList<Subscription>();
+			Collection<Subscription> subscriptions = new LinkedList<Subscription>();
 			Long unread = new Long(0);
 			
 			BasicDBList basicDBList = (BasicDBList) dbObject.get("subscriptions");
@@ -230,12 +228,6 @@ public class FolderDAO extends AbstractDAO {
 					subscriptions.add(subscription);
 				}
 			}
-			
-			Collections.sort(subscriptions, new Comparator<Subscription>(){
-				public int compare(Subscription o1, Subscription o2) {
-					return o1.getTitle().compareTo(o2.getTitle());
-				}
-			});
 			
 			result.setSubscriptions(subscriptions);
 			result.setUnread(unread);

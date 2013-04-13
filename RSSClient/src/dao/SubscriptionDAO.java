@@ -183,23 +183,9 @@ public class SubscriptionDAO extends AbstractDAO {
 				while (dbCursor.hasNext()) {
 					DBObject dbObject = dbCursor.next();
 					
-					Subscription subscription = new Subscription();
+					Subscription subscription = this.pojoFromBSON(dbObject, false);
+					subscriptions.put(subscription.getTitle(), subscription);
 					
-					subscription.setFeedURL(dbObject.get("feedURL").toString());
-					subscription.setId(new ObjectId(dbObject.get("_id").toString()));
-					subscription.setSiteURL(dbObject.get("siteURL").toString());
-					subscription.setTitle(dbObject.get("title").toString());
-					
-					Folder folder = new Folder();
-					
-					DBObject dbObjectFolder = (DBObject) ((DBRef) dbObject.get("folder")).fetch();
-					
-					folder.setId((ObjectId) dbObjectFolder.get("_id"));
-					
-//					subscription.setFolder(folder);
-//					
-//					subscriptions.put(subscription.getTitle(), subscription);
-//					
 //					if (folders.containsKey(subscription.getTitle())) {
 //						if (!folders.get(subscription.getTitle()).contains(subscription.getFolder())) {
 //							folders.get(subscription.getTitle()).add(subscription.getFolder());

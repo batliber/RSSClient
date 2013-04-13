@@ -70,6 +70,12 @@ a {
 	overflow: auto;
 }
 
+.divItemsHeader {
+	font-weight: bold;
+	height: 20px;
+	padding-left: 5px;
+}
+
 .openItem {
 	border-top: solid 1px #CCC;
 	border-left: solid 1px #4D90F0;
@@ -93,15 +99,25 @@ a {
 	white-space: nowrap;
 }
 
-.openItemPubDate {
+.folderOpenItemPubDate {
 	border-top: solid 1px #CCC;
 	background-color: #EEE;
 	height: 20px;
-	width: 125px;
-	text-align: center;
+	width: 105px;
 	float: left;
 	padding-top: 4px;
-	padding-left: 2px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.subscriptionOpenItemPubDate {
+	border-top: solid 1px #CCC;
+	border-left: solid 1px #4D90F0;
+	background-color: #EEE;
+	height: 20px;
+	width: 105px;
+	float: left;
+	padding-top: 4px;
 	overflow: hidden;
 	white-space: nowrap;
 }
@@ -175,15 +191,25 @@ a {
 	white-space: nowrap;
 }
 
-.itemPubDate {
+.folderItemPubDate {
 	border-top: solid 1px #CCC;
 	color: #777;
 	height: 20px;
-	width: 125px;
-	text-align: center;
+	width: 105px;
 	float: left;
 	padding-top: 4px;
-	padding-left: 2px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.subscriptionItemPubDate {
+	border-top: solid 1px #CCC;
+	border-left: solid 1px #CCC;
+	color: #777;
+	height: 20px;
+	width: 105px;
+	float: left;
+	padding-top: 4px;
 	overflow: hidden;
 	white-space: nowrap;
 }

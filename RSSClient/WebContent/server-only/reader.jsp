@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="entities.*" %>
 <%@ page import="dao.*" %>
 <%@ page import="importer.*" %>
@@ -6,8 +6,8 @@
 <%@ page import="global.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.text.*" %>
-<%@ page import="java.net.*"%>
-<%@ page import="org.bson.types.ObjectId"%>
+<%@ page import="java.net.*" %>
+<%@ page import="org.bson.types.ObjectId" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -26,10 +26,23 @@
 	
 	Map<String, Folder> folders = FolderDAO.getInstance().listFolders();
 	
-	Folder requestedFolder = requestedFolderId != null ? FolderDAO.getInstance().getById(new ObjectId(requestedFolderId)) : null;
-	Subscription requestedSubscription = requestedSubscriptionId != null ? SubscriptionDAO.getInstance().getById(new ObjectId(requestedSubscriptionId)) : null;
-	boolean keepUnread = requestedKeepUnread != null ? requestedKeepUnread.equals("true") : false;
-	Long limit = requestedLimit != null && !requestedLimit.equals("") ? new Long(requestedLimit) : new Long(Constants.DEFAULT_ITEMS_LIMIT);
+	Folder requestedFolder = 
+		requestedFolderId != null ? 
+			FolderDAO.getInstance().getById(new ObjectId(requestedFolderId)) : 
+			null;
+	Subscription requestedSubscription = 
+		requestedSubscriptionId != null ? 
+			SubscriptionDAO.getInstance().getById(new ObjectId(requestedSubscriptionId)) : 
+			null;
+	boolean keepUnread = 
+		requestedKeepUnread != null ? 
+			requestedKeepUnread.equals("true") : 
+			false;
+	Long limit = 
+		requestedLimit != null && !requestedLimit.equals("") ? 
+			new Long(requestedLimit) : 
+			new Long(Constants.DEFAULT_ITEMS_LIMIT);
+	Long newLimit = limit + Constants.DEFAULT_ITEMS_LIMIT;
 	
 	if (keepUnread) {
 		Item item = new Item();
@@ -40,121 +53,206 @@
 	
 	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 %>
-	<div id="divFolders" class="divFolders">
+	<div class="divFolders">
 <%
+	// Para cada Folder
 	for (String folderName : folders.keySet()) {
 		Folder folder = folders.get(folderName);
 		
+		ObjectId folderId = folder.getId();
+		Long folderUnread = folder.getUnread();
+		
 		if (requestedFolder != null && requestedFolder.getName().equals(folderName)) {
+			// Si es el Folder solicitado
 			Collection<Subscription> folderSubscriptions = requestedFolder.getSubscriptions();
+			String closeFolderURL = "reader.jsp";
 %>
 		<div class="divFolderStatusOpen">&nbsp;</div>
 		<div class="divFolderIcon">&nbsp;</div>
-		<div class="divFolder"><a href="reader.jsp"><span class="spanFolderName"><%=folderName%></span></a></div><div class="divUnreadCount">(<%=folder.getUnread()%>)</div>
+		<div class="divFolder">
+			<a href="<%= closeFolderURL %>"><span class="spanFolderName"><%= folderName %></span></a>
+		</div>
+		<div class="divUnreadCount">(<%= folderUnread %>)</div>
 <%
+			// Para cada Subscription
 			for (Subscription subscription : folderSubscriptions) {
-				String subscriptionText = subscription.getTitle().length() < 32 ? subscription.getTitle() : (subscription.getTitle().substring(0, 29) + "...");
+				ObjectId subscriptionId = subscription.getId();
+				String subscriptionTitle = 
+					subscription.getTitle().length() < 32 ? 
+						subscription.getTitle() : 
+						(subscription.getTitle().substring(0, 29) + "...");
+				Long subscriptionUnread = subscription.getUnread();
 		
 				if (subscription.getUnread() > 0) {
-%>
-		<div class="divSubscription"><a href="reader.jsp?folderId=<%=folder.getId()%>&subscriptionId=<%=subscription.getId()%>"><%=subscriptionText%></a></div><div class="divUnreadCount">(<%=subscription.getUnread()%>)</div>
+					// Si hay Items no leídos
+					String openSubscriptionURL = "reader.jsp?" + 
+						"folderId=" + folderId + 
+						"&subscriptionId=" + subscriptionId;
+%>					
+		<div class="divSubscription">
+			<a href="<%= openSubscriptionURL %>"><%= subscriptionTitle %></a>
+		</div>
+		<div class="divUnreadCount">(<%= subscriptionUnread %>)</div>
 <%
 				}
 			}
 		} else {
-			if (folder.getUnread() > 0) {
+			// Si no es el Folder solicitado
+			if (folderUnread > 0) {
+				
+				// Si hay items no leídos
+				String openFolderURL = "reader.jsp?" + 
+					"folderId=" + folder.getId();
 %>
 		<div class="divFolderStatusClosed">&nbsp;</div>
 		<div class="divFolderIcon">&nbsp;</div>
-		<div class="divFolder"><a href="reader.jsp?folderId=<%=folder.getId()%>"><span class="spanFolderName"><%=folderName%></span></a></div><div class="divUnreadCount">(<%=folder.getUnread()%>)</div>
+		<div class="divFolder">
+			<a href="<%= openFolderURL %>"><span class="spanFolderName"><%= folderName %></span></a>
+		</div>
+		<div class="divUnreadCount">(<%= folderUnread %>)</div>
 <%
 			}
-	
 		}
 	}
 %>
 	</div>
-	<div id="divItems" class="divItems">
+	<div class="divItems">
 <%
 	if (requestedSubscription == null) {
+		// Si estamos viendo los Items de un Folder
 		if (requestedFolder != null) {
+			// Si solicitamos un Folder
+			String folderName = requestedFolder.getName();
+%>
+		<div class="divItemsHeader"><%= folderName %></div>
+<%
+			// Para cada Item del Folder
 			for (Item item : ItemDAO.getInstance().listItemsByFolder(requestedFolder, false, limit)) {
 				Subscription subscription = item.getSubscription();
 				String subscriptionTitle = 
-					subscription.getTitle().length() < 32 ? subscription.getTitle() : (subscription.getTitle().substring(0, 29) + "...");
-				String itemTitle = (item.getTitle() != null ? item.getTitle().substring(0, Math.min(72, item.getTitle().length())) : "title"); 
+					subscription.getTitle().length() < 32 ? 
+						subscription.getTitle() : 
+						(subscription.getTitle().substring(0, 29) + "...");
+				String itemTitle = 
+					item.getTitle() != null ? 
+						item.getTitle().substring(0, Math.min(72, item.getTitle().length())) : 
+						"title";
 				String itemText = " - " + (item.getText() != null ? item.getText() : "description");
+				String itemPubDate = item.getPubDate() != null ? simpleDateFormat.format(item.getPubDate()) : "";
+				String itemLink = item.getLink() != null ? item.getLink().toString() : "#";
+				String itemHTML = item.getHTML();
+				String itemGUID = URLEncoder.encode(item.getGUID(), "UTF-8");
 				
 				if (requestedGUID != null && requestedGUID.equals(item.getGUID()) && !keepUnread) {
+					// Si solicitamos un Item en particular
+					ObjectId subscriptionId = subscription.getId();
+					String closeItemURL = "reader.jsp?" +
+						"folderId=" + requestedFolderId;
+					String keepUnreadURL = "reader.jsp?" + 
+						"folderId=" + requestedFolderId + 
+						"&subscriptionId=" + subscriptionId + 
+						"&itemGUID=" + itemGUID + 
+						"&keepUnread=true";
 %>
-		<a href="reader.jsp?folderId=<%=requestedFolder.getId()%>">
-			<div class="openSubscriptionTitle"><%=subscriptionTitle%></div>
-			<div class="openItemPubDate"><%= item.getPubDate() != null ? simpleDateFormat.format(item.getPubDate()) : "" %></div>
-			<div class="openItemTitle"><%=itemTitle%></div>
-			<div class="openItemText"><%=itemText%></div>
-		</a>
+		<div class="openSubscriptionTitle"><%= subscriptionTitle %></div>
+		<div class="folderOpenItemPubDate"><%= itemPubDate %></div>
+		<div class="openItemTitle"><a href="<%= closeItemURL %>"><%= itemTitle %></a></div>
+		<div class="openItemText"><%= itemText %></div>
 		<div class="openItemLink">
-			<a class="aOpenItemLink" href="<%=item.getLink() != null ? item.getLink() : "#"%>"><%=itemTitle%></a>
+			<a class="aOpenItemLink" href="<%= itemLink %>"><%= itemTitle %></a>
 		</div>
-		<div class="openItemHTML"><%=item.getHTML()%></div>
+		<div class="openItemHTML"><%= itemHTML %></div>
 		<div class="openItemTools">
-			<a class="aOpenItemToolsKeepUnread" href="reader.jsp?folderId=<%=requestedFolder.getId()%>&subscriptionId=<%=subscription.getId()%>&itemGUID=<%=URLEncoder.encode(item.getGUID(), "UTF-8")%>&keepUnread=true">Keep unread</a>
+			<a class="aOpenItemToolsKeepUnread" href="<%= keepUnreadURL %>">Keep unread</a>
 		</div>
 <%
 				} else {
+					// Si estamos viendo todos los Items colapsados
+					String openItemURL = "reader.jsp?" + 
+						"folderId=" + requestedFolderId + 
+						"&itemGUID=" + itemGUID;
 %>
-		<a href="reader.jsp?folderId=<%=requestedFolder.getId()%>&itemGUID=<%=URLEncoder.encode(item.getGUID(), "UTF-8")%>">
-			<div class="subscriptionTitle"><%=subscriptionTitle%></div>
-			<div class="itemPubDate"><%= item.getPubDate() != null ? simpleDateFormat.format(item.getPubDate()) : "" %></div>
-			<div class="itemTitle"><%=itemTitle%></div>
-			<div class="itemText"><%=itemText%></div>
-		</a>
+		<div class="subscriptionTitle"><%= subscriptionTitle %></div>
+		<div class="folderItemPubDate"><%= itemPubDate %></div>
+		<div class="itemTitle"><a href="<%= openItemURL %>"><%= itemTitle %></a></div>
+		<div class="itemText"><%= itemText %></div>
 <%
 				}
 			}
+		
+		String moreItemsURL = "reader.jsp?" + 
+			"folderId=" + requestedFolderId + 
+			"&limit=" + newLimit;
 %>
-		<div class="divMoreItems"><a href="reader.jsp?folderId=<%= requestedFolder.getId() %>&limit=<%= limit != null ? limit + Constants.DEFAULT_ITEMS_LIMIT : "" %>">::&nbsp;More items&nbsp;::</a></div>
+		<div class="divMoreItems"><a href="<%= moreItemsURL %>">::&nbsp;More items&nbsp;::</a></div>
 <%
 		}
 	} else {
-		String subscriptionTitle = 
-			requestedSubscription.getTitle().length() < 32 ? requestedSubscription.getTitle() : (requestedSubscription.getTitle().substring(0, 29) + "...");
-		
-		for (Item item : ItemDAO.getInstance().listItemsBySubscription(requestedSubscription, false, limit)) {
-			String itemTitle = (item.getTitle() != null ? item.getTitle().substring(0, Math.min(72, item.getTitle().length())) : "title");
-			String itemText = " - " + (item.getText() != null ? item.getText() : "description");
-	
-			if (requestedGUID != null && requestedGUID.equals(item.getGUID()) && !keepUnread) {
+		// Si estamos viendo los Items de una Subscripción
+		String subscriptionTitle = requestedSubscription.getTitle();
+		String subscriptionURL = requestedSubscription.getSiteURL();
 %>
-		<a href="reader.jsp?folderId=<%=requestedFolder.getId()%>&subscriptionId=<%=requestedSubscription.getId()%>">
-			<div class="openSubscriptionTitle"><%=subscriptionTitle%></div>
-			<div class="openItemPubDate"><%= item.getPubDate() != null ? simpleDateFormat.format(item.getPubDate()) : "" %></div>
-			<div class="openItemTitle"><%=itemTitle%></div>
-			<div class="openItemText"><%=itemText%></div>
-		</a>
-		<div class="openItemLink"><a class="aOpenItemLink" href="<%=item.getLink() != null ? item.getLink() : "#"%>"><%=itemTitle%></a></div>
-		<div class="openItemHTML"><%=item.getHTML()%></div>
+		<div class="divItemsHeader"><a href="<%= subscriptionURL %>"><%= subscriptionTitle %></a></div>
+<%		
+		// Para cada Item de la Subscripción
+		for (Item item : ItemDAO.getInstance().listItemsBySubscription(requestedSubscription, false, limit)) {
+			String itemGUID = URLEncoder.encode(item.getGUID(), "UTF-8");
+			String itemHTML = item.getHTML();
+			String itemLink = item.getLink() != null ? item.getLink().toString() : "#";
+			String itemPubDate = item.getPubDate() != null ? simpleDateFormat.format(item.getPubDate()) : "";
+			String itemText = " - " + (item.getText() != null ? item.getText() : "description");
+			String itemTitle = 
+				item.getTitle() != null ? 
+					item.getTitle().substring(0, Math.min(72, item.getTitle().length())) : 
+					"title";
+			String closeItemURL = "reader.jsp?" + 
+				"folderId=" + requestedFolderId + 
+				"&subscriptionId=" + requestedSubscriptionId;
+
+			if (requestedGUID != null && requestedGUID.equals(item.getGUID()) && !keepUnread) {
+				// Si solicitamos un Item en particular
+				String keepUnreadURL = "reader.jsp?" + 
+					"folderId=" + requestedFolderId + 
+					"&subscriptionId=" + requestedSubscriptionId + 
+					"&itemGUID=" + itemGUID + 
+					"&keepUnread=true";
+%>
+		<div class="subscriptionOpenItemPubDate"><%= itemPubDate %></div>
+		<div class="openItemTitle"><a href="<%= closeItemURL %>"><%= itemTitle %></a></div>
+		<div class="openItemText"><%= itemText %></div>
+		<div class="openItemLink">
+			<a class="aOpenItemLink" href="<%= itemLink %>"><%= itemTitle %></a>
+		</div>
+		<div class="openItemHTML"><%= itemHTML %></div>
 		<div class="openItemTools">
-			<a class="aOpenItemToolsKeepUnread" href="reader.jsp?folderId=<%=requestedFolder.getId()%>&subscriptionId=<%=requestedSubscription.getId()%>&itemGUID=<%=URLEncoder.encode(item.getGUID(), "UTF-8")%>&keepUnread=true">Keep unread</a>
+			<a class="aOpenItemToolsKeepUnread" href="<%= keepUnreadURL %>">Keep unread</a>
 		</div>
 <%
 			} else {
+				// Si estamos viendo todos los Items colapsados
+				String openItemURL = "reader.jsp?" + 
+					"folderId=" + requestedFolderId + 
+					"&subscriptionId=" + requestedSubscriptionId + 
+					"&itemGUID=" + itemGUID;
 %>
-		<a href="reader.jsp?folderId=<%=requestedFolder.getId()%>&subscriptionId=<%=requestedSubscription.getId()%>&itemGUID=<%=URLEncoder.encode(item.getGUID(), "UTF-8")%>">
-			<div class="subscriptionTitle"><%=subscriptionTitle%></div>
-			<div class="itemPubDate"><%= item.getPubDate() != null ? simpleDateFormat.format(item.getPubDate()) : "" %></div>
-			<div class="itemTitle"><%=itemTitle%></div>
-			<div class="itemText"><%=itemText%></div>
-		</a>
+		<div class="subscriptionItemPubDate"><%= itemPubDate %></div>
+		<div class="itemTitle"><a href="<%= openItemURL %>"><%= itemTitle %></a></div>
+		<div class="itemText"><%= itemText %></div>
 <%
 			}
 		}
+		
+		String moreItemsURL = "reader.jsp?" + 
+			"folderId=" + requestedFolderId + 
+			"&subscriptionId=" + requestedSubscriptionId +
+			"&limit=" + newLimit;
 %>
-		<div class="divMoreItems"><a href="reader.jsp?folderId=<%= requestedFolder.getId() %>&subscriptionId=<%= requestedSubscription.getId() %>&limit=<%= limit != null ? limit + Constants.DEFAULT_ITEMS_LIMIT : "" %>">::&nbsp;More items&nbsp;::</a></div>
+		<div class="divMoreItems"><a href="<%= moreItemsURL %>">::&nbsp;More items&nbsp;::</a></div>
 <%
 	}
 
 	if (requestedGUID != null && !keepUnread) {
+		// Si estamos solicitando mantener el Item abierto como no leído
 		Item item = new Item();
 		item.setGUID(requestedGUID);
 		

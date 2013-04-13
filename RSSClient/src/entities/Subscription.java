@@ -61,5 +61,4 @@ public class Subscription {
 	public void setFolders(Collection<Folder> folders) {
 		this.folders = folders;
 	}
-
 }
