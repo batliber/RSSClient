@@ -1,9 +1,6 @@
-/it
-/reader
-/scheduler
-/test
 /dao
 /dwr
 /entities
 /global
 /importer
+/it

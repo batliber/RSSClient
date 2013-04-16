@@ -1,6 +1,8 @@
 package dao;
 
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -98,6 +100,34 @@ public class FolderDAO extends AbstractDAO {
 		return result;
 	}
 
+	public Collection<Folder> listFoldersShallow() {
+		Collection<Folder> result = new LinkedList<Folder>();
+		
+		try {
+			this.connect();
+			this.dbCollection = this.db.getCollection(this.collectionName);
+			
+			DBCursor dbCursor = this.dbCollection.find();
+			
+			if (dbCursor != null) {
+				while (dbCursor.hasNext()) {
+					DBObject dbObject = dbCursor.next();
+					
+					Folder folder = this.pojoFromBSON(dbObject, true);
+					
+					result.add(folder);
+				}
+				dbCursor.close();
+			}
+			
+			this.disconnect();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
 	public void createFolders(Collection<Folder> folders) {
 		try {
 			this.connect();
@@ -214,7 +244,7 @@ public class FolderDAO extends AbstractDAO {
 		result.setName(dbObject.get("name").toString());
 		
 		if (!shallow) {
-			Collection<Subscription> subscriptions = new LinkedList<Subscription>();
+			List<Subscription> subscriptions = new LinkedList<Subscription>();
 			Long unread = new Long(0);
 			
 			BasicDBList basicDBList = (BasicDBList) dbObject.get("subscriptions");
@@ -228,6 +258,12 @@ public class FolderDAO extends AbstractDAO {
 					subscriptions.add(subscription);
 				}
 			}
+			
+			Collections.sort(subscriptions, new Comparator<Subscription>(){
+				public int compare(Subscription o1, Subscription o2) {
+					return o1.getTitle().compareTo(o2.getTitle());
+				}
+			});
 			
 			result.setSubscriptions(subscriptions);
 			result.setUnread(unread);

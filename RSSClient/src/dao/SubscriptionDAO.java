@@ -41,7 +41,7 @@ public class SubscriptionDAO extends AbstractDAO {
 			
 			this.dbCollection = this.db.getCollection(this.collectionName);
 			
-			DBCursor dbCursor = this.dbCollection.find();
+			DBCursor dbCursor = this.dbCollection.find().sort(new BasicDBObject().append("title", 1));
 			
 			if (dbCursor != null) {
 				while (dbCursor.hasNext()) {
